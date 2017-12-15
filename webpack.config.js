@@ -17,8 +17,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: `bundle.${fileExt}`,
-    path: path.join(__dirname, './docs/js'),
-    publicPath: '/js/'
+    path: path.join(__dirname, './docs/viz'),
+    publicPath: '/viz/'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -32,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.(jp?eg|png|gif|wav|mp3)$/,
-        loader: 'file-loader'
+        loader: 'file-loader',
       },
       {
         test: /\.(glsl|frag|vert)$/,
