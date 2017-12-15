@@ -29,6 +29,18 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'buble-loader'
+      },
+      {
+        test: /\.(jp?eg|png|gif|wav|mp3)$/,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.(glsl|frag|vert)$/,
+        loader: 'raw-loader'
+      },
+      {
+        test: /\.(glsl|frag|vert)$/,
+        loader: 'glslify-loader'
       }
     ]
   },
