@@ -17,8 +17,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: `bundle.${fileExt}`,
-    path: path.join(__dirname, './docs/viz'),
-    publicPath: '/viz/'
+    path: path.join(__dirname, './docs/viz')
   },
   devtool: 'inline-source-map',
   devServer: {
