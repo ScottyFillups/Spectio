@@ -4,20 +4,24 @@ const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
 const env = require('yargs').argv.env
 
 let plugins = []
-let fileExt
+let publicPath
 
 if (env === 'build') {
-  fileExt = 'min.js'
+  publicPath = '/spectio/viz/'
   plugins.push(new UglifyJsPlugin({minimize: true}))
 } else {
-  fileExt = 'js'
+  publicPath = '/viz/'
 }
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    'stackgl-example': './src/stackgl-example/index.js',
+    'sphere': './src/sphere/index.js'
+  },
   output: {
-    filename: `bundle.${fileExt}`,
-    path: path.join(__dirname, './docs/viz')
+    filename: `[name].bundle.min.js`,
+    path: path.join(__dirname, './docs/viz'),
+    publicPath: publicPath
   },
   devtool: 'inline-source-map',
   devServer: {
