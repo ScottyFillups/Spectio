@@ -9,14 +9,12 @@ import vert from './vert.glsl'
 const audio = new Audio(songFile)
 const shell = require('gl-now')()
 
-let canvas
 let gl
 let shader
 let analyser
 
 shell.on('gl-init', function () {
   gl = shell.gl
-  canvas = shell.canvas
   shader = createShader(gl, vert, frag)
   analyser = glAudioAnalyser(gl, audio)
 })
@@ -28,7 +26,7 @@ shell.on('gl-render', function (t) {
   gl.viewport(0, 0, width, height)
 
   shader.bind()
-  shader.uniforms.uWaveform = analyser.bindWaveform(0)
+  shader.uniforms.uWaveform = analyser.bindFrequencies(0)
   shader.uniforms.uResolution = [width, height]
 
   draw(gl)

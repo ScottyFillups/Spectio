@@ -15,7 +15,7 @@ if (env === 'build') {
 
 module.exports = {
   entry: {
-    'stackgl-example': './src/stackgl-example/index.js',
+    'vertical-line': './src/vertical-line/index.js',
     'sphere': './src/sphere/index.js'
   },
   output: {
